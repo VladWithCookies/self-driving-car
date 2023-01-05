@@ -5,6 +5,7 @@ class Car {
     this.width = width;
     this.height = height;
 
+    this.sensor = new Sensor(this);
     this.controls = new Controls();
 
     this.speed = 0;
@@ -14,8 +15,9 @@ class Car {
     this.angle = 0;
   }
 
-  update() {
+  update(roadBorders) {
     this.#move();
+    this.sensor.update(roadBorders);
   }
 
   draw(context) {
@@ -26,6 +28,8 @@ class Car {
     context.rect(-this.width / 2, -this.height / 2, this.width, this.height);
     context.fill();
     context.restore();
+
+    this.sensor.draw(context);
   }
 
   #move() {

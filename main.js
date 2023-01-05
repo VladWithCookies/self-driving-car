@@ -20,13 +20,23 @@ const cars = generateCars(100);
 let bestCar = cars[0];
 
 if (localStorage.getItem('bestBrain')) {
-  bestCar.brain = JSON.parse(localStorage.getItem('bestBrain'));
+  cars.forEach((car, index) => {
+    car.brain = JSON.parse(localStorage.getItem('bestBrain'));
+
+    if (index !== 0) {
+      NeuralNetwork.mutate(cars[index].brain, 0.2);
+    }
+  });
 }
 
 const traffic = [
   new Car(road.getLaneCenter(1), -100, 30, 50, CONTROL_TYPES.DUMMY, 2),
   new Car(road.getLaneCenter(0), -300, 30, 50, CONTROL_TYPES.DUMMY, 2),
   new Car(road.getLaneCenter(2), -300, 30, 50, CONTROL_TYPES.DUMMY, 2),
+  new Car(road.getLaneCenter(0), -500, 30, 50, CONTROL_TYPES.DUMMY, 2),
+  new Car(road.getLaneCenter(1), -500, 30, 50, CONTROL_TYPES.DUMMY, 2),
+  new Car(road.getLaneCenter(1), -700, 30, 50, CONTROL_TYPES.DUMMY, 2),
+  new Car(road.getLaneCenter(2), -700, 30, 50, CONTROL_TYPES.DUMMY, 2),
 ];
 
 const save = () => {

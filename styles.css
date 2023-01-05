@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: darkgrey;
+  display: flex;
+  justify-content: center;
+}
+
+.root {
+  background: lightgrey;
+}

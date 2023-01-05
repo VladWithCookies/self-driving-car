@@ -9,7 +9,7 @@ const road = new Road(canvas.width / 2, canvas.width * 0.9);
 const generateCars = (n) => {
   const cars = [];
 
-  for (let i = 0; i <= n; i++) {
+  for (let i = 0; i < n; i++) {
     cars.push(new Car(road.getLaneCenter(1), 100, 30, 50, CONTROL_TYPES.AI));
   }
 
@@ -37,6 +37,11 @@ const traffic = [
   new Car(road.getLaneCenter(1), -500, 30, 50, CONTROL_TYPES.DUMMY, 2),
   new Car(road.getLaneCenter(1), -700, 30, 50, CONTROL_TYPES.DUMMY, 2),
   new Car(road.getLaneCenter(2), -700, 30, 50, CONTROL_TYPES.DUMMY, 2),
+  new Car(road.getLaneCenter(0), -900, 30, 50, CONTROL_TYPES.DUMMY, 2),
+  new Car(road.getLaneCenter(1), -900, 30, 50, CONTROL_TYPES.DUMMY, 2),
+  new Car(road.getLaneCenter(2), -1100, 30, 50, CONTROL_TYPES.DUMMY, 2),
+  new Car(road.getLaneCenter(1), -1200, 30, 50, CONTROL_TYPES.DUMMY, 2),
+
 ];
 
 const save = () => {

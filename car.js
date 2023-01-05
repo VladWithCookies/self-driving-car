@@ -44,7 +44,7 @@ class Car {
     }
   }
 
-  draw(context) {
+  draw(context, sensorVisible = false) {
     context.fillStyle = this.damaged ? 'red' : 'black';
     context.beginPath();
     context.moveTo(this.polygon[0].x, this.polygon[0].y);
@@ -55,7 +55,7 @@ class Car {
 
     context.fill();
 
-    if (this.sensor) {
+    if (this.sensor && sensorVisible) {
       this.sensor.draw(context);
     }
   }
